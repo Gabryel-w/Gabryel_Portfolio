@@ -32,49 +32,6 @@ ul li:hover {
   color: rgb(114, 99, 250);
 }
 
-.Banner {
-  position: relative;
-  background: url(/Banner.png) no-repeat center;
-  background-size: auto;
-  height: 900px;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.Text-Container {
-  color: #fff;
-  margin-top: 10%;
-  
-  border-radius: 20px;
-  padding: 20px;
-  width: 40%;
-  height: 200px;
-}
-
-.Text-Container h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2rem;
-  font-weight: 500;
-  color: #F9F9F9;
-  line-height: 3.4rem;
-}
-
-.Text-Container span {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 500;
-  line-height: 5.4rem;
-  display: block;
-  color: #f7990c;
-}
-
-.Text-Container p {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 2rem;
-  font-weight: 500;
-  color: #fff;
-}
-
 .home-img {
   width: 80%;
   display: flex;
@@ -83,8 +40,6 @@ ul li:hover {
 }
 
 .home-img img {
-  width: 500px;
-  height: 500px;
   animation: float 6s ease-in-out infinite;
   overflow: hidden;
   transform: translatey(0px);
@@ -106,4 +61,29 @@ ul li:hover {
 
     transform: translatey(0px);
   }
+}
+
+.linksbutton {
+  color: #fff;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: 30px;
+  margin: 20px;
+  padding: 20px;
+  background: linear-gradient(to right, rgba(212, 209, 236, 0.815) 20%, rgb(96, 85, 255) 60%);
+  border-radius: 10px;
+  width: 180px;
+  height: 60px;
+}
+
+.linksbutton p {
+  padding-left: 10px;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.linksbutton:hover {
+  background: linear-gradient(to right, rgb(143, 136, 233) 20%, rgb(212, 209, 236, 0.815) 60%);
 }
