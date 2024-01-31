@@ -2,32 +2,108 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+body,
+html {
+  scroll-behavior: smooth;
+  height: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.header {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+  border-bottom: 1px solid rgb(73, 88, 221);
+}
+
+.title {
+  background: linear-gradient(to right, rgb(255, 255, 255) 20%, rgb(114, 99, 250) 60%);
+  background-clip: text;
+  color: transparent;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+ul li {
+  padding: 0px 30px;
+  font-size: 18px;
+}
+
+ul li:hover {
+  color: rgb(114, 99, 250);
+}
+
+.Banner {
+  position: relative;
+  background: url(/Banner.png) no-repeat center;
+  background-size: auto;
+  height: 900px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.Text-Container {
+  color: #fff;
+  margin-top: 10%;
+  
+  border-radius: 20px;
+  padding: 20px;
+  width: 40%;
+  height: 200px;
+}
+
+.Text-Container h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #F9F9F9;
+  line-height: 3.4rem;
+}
+
+.Text-Container span {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 5.4rem;
+  display: block;
+  color: #f7990c;
+}
+
+.Text-Container p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.home-img {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-img img {
+  width: 500px;
+  height: 500px;
+  animation: float 6s ease-in-out infinite;
+  overflow: hidden;
+  transform: translatey(0px);
+}
+
+@keyframes float {
+  0% {
+
+    transform: translatey(0px);
+
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+  50% {
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+    transform: translatey(-20px);
+  }
+
+  100% {
+
+    transform: translatey(0px);
   }
 }
