@@ -9,13 +9,64 @@ html {
   height: 100%;
 }
 
-.header {
+
+
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #dbdbe2;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.brand-navigation {
   color: #fff;
   background: rgba(0, 0, 0, 0.7);
   border-bottom: 1px solid rgb(73, 88, 221);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s;
 }
 
-.title {
+.content {
+  width: 90%;
+  height: 110px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 20%;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  margin: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  padding: 1em;
+  color: #dbdbe2;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: rgb(114, 99, 250);
+}
+
+.text-title {
   background: linear-gradient(to right, rgb(255, 255, 255) 20%, rgb(114, 99, 250) 60%);
   background-clip: text;
   color: transparent;
@@ -23,13 +74,36 @@ html {
   font-weight: 800;
 }
 
-ul li {
-  padding: 0px 30px;
-  font-size: 18px;
-}
+@media screen and (max-width: 768px) {
+  .content {
+    margin: 0 0;
+    align-items: center;
+  }
 
-ul li:hover {
-  color: rgb(114, 99, 250);
+  .menu-icon {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    position: absolute;
+    top: 110px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    border-bottom: 1px solid rgb(73, 88, 221);
+    z-index: 999;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+
+  .text-title {
+    margin-left: 10px;
+  }
 }
 
 .home-img {
@@ -72,7 +146,7 @@ ul li:hover {
   margin: 30px;
   margin: 20px;
   padding: 20px;
-  background: linear-gradient(to right, rgba(212, 209, 236, 0.815) 20%, rgb(96, 85, 255) 60%);
+  background: linear-gradient(to right, rgba(75, 58, 199, 0.815) 20%, rgb(96, 85, 255) 60%);
   border-radius: 10px;
   width: 180px;
   height: 60px;
@@ -85,5 +159,117 @@ ul li:hover {
 }
 
 .linksbutton:hover {
-  background: linear-gradient(to right, rgb(143, 136, 233) 20%, rgb(212, 209, 236, 0.815) 60%);
+  background: linear-gradient(to right, rgb(71, 61, 214) 20%, rgba(75, 55, 228, 0.815) 60%);
+}
+
+.aboutContainer {
+  text-align: center;
+}
+
+.aboutTitle {
+  z-index: 20;
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.skillsContainer h1 {
+  margin-right: 10%;
+}
+
+.aboutText {
+  z-index: 20;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.textContainer {
+  z-index: 20;
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.skillsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  margin: 10% auto;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.box {
+  z-index: 20;
+  position: relative;
+  text-align: center;
+  background-color: #212121;
+  border-bottom: 2px solid #8257E6;
+  height: 120px;
+  width: 120px;
+  aspect-ratio: 1;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.box p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #8257E6;
+  margin-bottom: 1.5rem;
+}
+
+.box:hover {
+  transform: scale(1.1);
+}
+
+
+.cvButton {
+  color: #fff;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: 30px;
+  margin: 30px auto;
+  padding: 20px;
+  background: linear-gradient(to right, rgba(75, 58, 199, 0.815) 20%, rgb(96, 85, 255) 60%);
+  border-radius: 10px;
+  width: 180px;
+  height: 60px;
+}
+
+.cvButton:hover {
+  background: linear-gradient(to right, rgb(71, 61, 214) 20%, rgba(75, 55, 228, 0.815) 60%);
+}
+
+
+@media screen and (max-width: 768px) {
+  .textContainer {
+    width: 100%;
+    padding: 40px;
+  }
+
+  .aboutText {
+    font-size: 1.3rem;
+    text-align: start;
+  }
+
+
+  .skillsContainer {
+    width: 70%;
+  }
+
 }

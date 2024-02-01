@@ -1,50 +1,62 @@
+"use client";
+
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
+function Header() {
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
-export default function Header() {
-    return (
-        <>
-            <div className="header fixed top-0 left-0 right-0 z-50 flex justify-between bg-gray-1000 p-8">
-                <h1 className="text-2xl title ">G.W Portfólio</h1>
+  const toggleMenu = () => {
+    setMenuOpen((prevMenuOpen) => !prevMenuOpen);
+  };
 
-                <div>
-                    <nav>
-                        <ul className='flex'>
-                            <li>
-                                <Link href="#Inicio">
-                                    Inicio
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="#Sobre">
-                                    Sobre
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="#Projetos">
-                                    Projetos
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="#Contato">
-                                    Contato
-                                </Link>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
+  useEffect(() => {
+    const handleOutsideClick = (event:any) => {
+      const header = document.querySelector('.brand-navigation');
+      if (header && !header.contains(event.target)) {
+        closeMenu();
+      }
+    };
 
+    document.addEventListener('click', handleOutsideClick);
 
-            </div>
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, []);
 
+  return (
+    <header className={` backdrop-blur-md brand-navigation ${isMenuOpen ? 'open' : ''}`}>
+      <div className="content">
+        <h1 className="text-title">G.W Portfólio</h1>
 
+        <div className={`menu-icon ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
+        </div>
 
-
-
-
-
-
-        </>
-    );
+        <nav className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
+          <Link href="#Inicio" onClick={closeMenu}>
+            Inicio
+          </Link>
+          <Link href="#Sobre" onClick={closeMenu}>
+            Sobre
+          </Link>
+          <Link href="#Projetos" onClick={closeMenu}>
+            Projetos
+          </Link>
+          <Link href="#Contato" onClick={closeMenu}>
+            Contato
+          </Link>
+        </nav>
+      </div>
+    </header>
+  );
 }
+
+export default Header;
