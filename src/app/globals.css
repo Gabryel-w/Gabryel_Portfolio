@@ -162,33 +162,17 @@ html {
   background: linear-gradient(to right, rgb(71, 61, 214) 20%, rgba(75, 55, 228, 0.815) 60%);
 }
 
-.aboutContainer {
-  text-align: center;
-}
 
-.aboutTitle {
+
+.title {
   z-index: 20;
-  font-size: 40px;
-  font-weight: bold;
+  font-size: 50px;
+  font-weight: 900;
   color: #fff;
+  display: inline-block;
 }
 
-.skillsContainer h1 {
-  margin-right: 10%;
-}
 
-.aboutText {
-  z-index: 20;
-  font-size: 1.1rem;
-  text-align: center;
-}
-
-.textContainer {
-  z-index: 20;
-  width: 50%;
-  margin: 0 auto;
-  padding: 20px;
-}
 
 .skillsContainer {
   display: flex;
@@ -196,6 +180,7 @@ html {
   align-items: center;
   width: 60%;
   margin: 10% auto;
+  padding-left: 20px;
 }
 
 .cards {
@@ -242,8 +227,7 @@ html {
   text-align: center;
   align-items: center;
   justify-content: center;
-  margin: 30px;
-  margin: 30px auto;
+  margin-top: 20px;
   padding: 20px;
   background: linear-gradient(to right, rgba(75, 58, 199, 0.815) 20%, rgb(96, 85, 255) 60%);
   border-radius: 10px;
@@ -257,19 +241,67 @@ html {
 
 
 @media screen and (max-width: 768px) {
-  .textContainer {
-    width: 100%;
-    padding: 40px;
-  }
-
-  .aboutText {
-    font-size: 1.3rem;
-    text-align: start;
-  }
-
 
   .skillsContainer {
     width: 70%;
   }
 
+}
+
+
+.projects-container {
+  z-index: 20;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 0 auto;
+}
+
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background: rgba(0, 0, 0, 0.9);
+  border-bottom: 2px solid #8257E6;
+  margin: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: 0.2s;
+ 
+}
+
+.project-card:hover {
+  transform: scale(1.1);
+}
+
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.image-container img {
+ width: 100%;
+  object-fit: cover;
+  height: 300px;
+}
+
+
+@media (max-width: 768px) {
+  .projects-container {
+    justify-content: center;
+  }
+
+  .project-card {
+    max-width: 100%;
+  }
+}
+
+
+.aboutImage {
+  border-radius: 20px;
 }
