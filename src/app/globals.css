@@ -39,7 +39,7 @@ html {
   transition: background-color 0.3s;
 }
 
-.emailSec {
+.contactSec {
   background: rgba(0, 0, 0, 0.7);
   transition: background-color 0.3s;
   border-radius: 10px;
@@ -48,21 +48,30 @@ html {
   padding: 30px;
 }
 
-.emailSec h1 {
+.contactSec h1 {
   font-size: 30px;
   font-weight: bolder;
   margin-bottom: 30px;
 }
 
-.emailSec button {
+.contactSec button {
   background-color: #8257E6;
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
-.emailSec button:hover {
+.contactSec button:hover {
   background-color: rgb(91, 18, 228);
 }
+
+.sendText {
+  font-size: 40px;
+  background: rgba(0, 0, 0, 0.7);
+  width: 500px;
+  border-radius: 20px;
+  margin: 0 auto;
+}
+
 
 .footerSec {
   border-top: 1px solid rgb(73, 88, 221);
@@ -330,7 +339,6 @@ html {
     max-width: 100%;
   }
 }
-
 
 .aboutImage {
   border-radius: 20px;

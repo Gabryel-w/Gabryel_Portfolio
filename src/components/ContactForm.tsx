@@ -8,12 +8,16 @@ export default function ContactForm() {
 
 
     if (state.succeeded) {
-        return <h1 className='text-center text-green-500 mt-56 '>Obrigado Pelo Contato !!</h1>;
+        return (
+        <div className='sendText'>
+             <h1 className='text-center  text-green-500 mt-56 '>Obrigado Pelo Contato !!</h1>
+        </div>
+       );
     }
 
     return (
         <div className='mt-80'> 
-            <section className=" backdrop-blur-md emailSec grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative">
+            <section className=" backdrop-blur-md contactSec grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative">
                 <div className="md:col-span-1">
                     <h1 className="text-xl font-bold text-white my-2">Contato</h1>
                     <p className="text-[#ADB7BE] mb-4 max-w-md">
@@ -33,6 +37,7 @@ export default function ContactForm() {
                                 id="name"
                                 type="text"
                                 name="name"
+                                required
                             />
                         </div>
 
@@ -45,6 +50,7 @@ export default function ContactForm() {
                                 id="email"
                                 type="email"
                                 name="email"
+                                required
                             />
                             <ValidationError
                                 prefix="Email"
@@ -61,6 +67,7 @@ export default function ContactForm() {
                                 id="subject"
                                 type="subject"
                                 name="subject"
+                                required
                             />
                         </div>
 
@@ -72,6 +79,7 @@ export default function ContactForm() {
                                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                                 id="message"
                                 name="message"
+                                required
                             />
                             <ValidationError
                                 prefix="Message"
