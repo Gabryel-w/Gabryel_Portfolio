@@ -9,8 +9,8 @@ export default function ContactForm() {
 
     if (state.succeeded) {
         return (
-        <div className='sendText'>
-             <h1 className='text-center  text-green-500 mt-56 '>Obrigado Pelo Contato !!</h1>
+        <div className='flex flex-col w-full h-full'>
+             <h1 className='text-center sendText text-green-500 mt-56 '>Obrigado Pelo Contato !</h1>
         </div>
        );
     }
