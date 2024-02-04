@@ -39,6 +39,36 @@ html {
   transition: background-color 0.3s;
 }
 
+.emailSec {
+  background: rgba(0, 0, 0, 0.7);
+  transition: background-color 0.3s;
+  border-radius: 10px;
+  border-top: 1px solid rgb(73, 88, 221);
+  border-bottom: 1px solid rgb(73, 88, 221);
+  padding: 30px;
+}
+
+.emailSec h1 {
+  font-size: 30px;
+  font-weight: bolder;
+  margin-bottom: 30px;
+}
+
+.emailSec button {
+  background-color: #8257E6;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.emailSec button:hover {
+  background-color: rgb(91, 18, 228);
+}
+
+.footerSec {
+  border-top: 1px solid rgb(73, 88, 221);
+  background: rgba(0, 0, 0, 0.7);
+}
+
 .content {
   width: 90%;
   height: 110px;
@@ -180,7 +210,7 @@ html {
   align-items: center;
   width: 60%;
   margin: 10% auto;
-  padding-left: 20px;
+ 
 }
 
 .cards {

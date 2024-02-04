@@ -1,5 +1,7 @@
 
 import AboutSection from "@/components/AboutSection";
+import ContactForm from "@/components/ContactForm";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
@@ -11,7 +13,7 @@ export default function Home() {
   return (
     <main className="h-full w-full">
       <div className="flex flex-col ">
-        <section className="z-20" id="Inicio">
+        <section  id="Inicio">
           <Hero />
         </section>
 
@@ -24,6 +26,11 @@ export default function Home() {
           <Projects />
         </section>
 
+        <section className="z-20" id="Contato">
+          <ContactForm />
+        </section>
+
+        <Footer />
       </div>
 
     </main>
