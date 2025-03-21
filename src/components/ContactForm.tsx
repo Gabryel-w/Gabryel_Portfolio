@@ -1,99 +1,52 @@
-"use client"
-import React from 'react';
-import { useForm, ValidationError } from '@formspree/react';
+"use client";
 
+import React, { useState } from "react";
+import { FaWhatsapp, FaCopy, FaCheck } from "react-icons/fa";
 
-export default function ContactForm() {
-    const [state, handleSubmit] = useForm("mqkrpqyr");
+export default function Contact() {
+  const whatsappNumber = "55996725342";
+  const email = "gabryelqwer@gmail.com";
+  const [isCopied, setIsCopied] = useState(false);
 
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(email).then(() => {
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 2000); 
+    });
+  };
 
-    if (state.succeeded) {
-        return (
-        <div className='flex flex-col w-full h-full'>
-             <h1 className='text-center sendText text-green-500 mt-56 '>Obrigado Pelo Contato !</h1>
-        </div>
-       );
-    }
+  return (
+    <section className="flex flex-col items-center justify-center py-24 px-6 text-white relative bg-gradient-to-b from-gray-900 to-gray-800">
+      <div className="absolute inset-0 bg-black/20 backdrop-blur-sm rounded-lg z-[-1]"></div>
 
-    return (
-        <div className='mt-80'> 
-            <section className=" backdrop-blur-md contactSec grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative">
-                <div className="md:col-span-1">
-                    <h1 className="text-xl font-bold text-white my-2">Contato</h1>
-                    <p className="text-[#ADB7BE] mb-4 max-w-md">
-                        Atualmente estou em busca de novas oportunidades, minha caixa de entrada está sempre aberta.
-                        Se você tiver alguma dúvida ou apenas quiser dizer oi, farei o possível para entrar em contato com você!
-                    </p>
-                </div>
+      <h1 className="text-4xl font-bold mb-6 text-blue-400 text-center drop-shadow-md">
+        Vamos Conversar!
+      </h1>
+      <p className="text-lg text-gray-300 mb-8 max-w-2xl text-center leading-relaxed">
+        Estou sempre aberto para novas oportunidades e conversas interessantes.
+        Caso tenha alguma dúvida, projeto ou simplesmente queira trocar uma ideia,
+        entre em contato comigo pelo e-mail ou WhatsApp.
+      </p>
 
-                <div className="md:col-span-1">
-                    <form className='flex flex-col' onSubmit={handleSubmit}>
-                        <div className='mb-6'>
-                            <label className="text-white block mb-2 text-sm font-medium" htmlFor="Name">
-                                Nome Completo
-                            </label>
-                            <input
-                                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                                id="name"
-                                type="text"
-                                name="name"
-                                required
-                            />
-                        </div>
+      <div
+        onClick={handleCopyEmail}
+        className="flex items-center justify-between bg-white/10 backdrop-blur-lg rounded-lg p-4 mb-8 w-full max-w-md cursor-pointer transition-all duration-300 hover:bg-white/20 hover:shadow-lg"
+      >
+        <span className="text-gray-200">{email}</span>
+        <button className="text-gray-300 hover:text-white">
+          {isCopied ? <FaCheck size={20} /> : <FaCopy size={20} />}
+        </button>
+      </div>
 
-                        <div className='mb-6'>
-                            <label className="text-white block text-sm mb-2 font-medium" htmlFor="email">
-                                Email
-                            </label>
-                            <input
-                                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                                id="email"
-                                type="email"
-                                name="email"
-                                required
-                            />
-                            <ValidationError
-                                prefix="Email"
-                                field="email"
-                                errors={state.errors}
-                            />
-                        </div>
-                        <div className='mb-6'>
-                            <label className="text-white block text-sm mb-2 font-medium" htmlFor="email">
-                                Assunto
-                            </label>
-                            <input
-                                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                                id="subject"
-                                type="subject"
-                                name="subject"
-                                required
-                            />
-                        </div>
-
-                        <div className='mb-6'>
-                            <label className="text-white block text-sm mb-2 font-medium" htmlFor="message">
-                                Mensagem
-                            </label>
-                            <textarea
-                                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                                id="message"
-                                name="message"
-                                required
-                            />
-                            <ValidationError
-                                prefix="Message"
-                                field="message"
-                                errors={state.errors}
-                            />
-                        </div>
-
-                        <button className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full" type="submit">
-                            Enviar
-                        </button>
-                    </form>
-                </div>
-            </section>
-        </div>
-    );
+      <a
+        href={`https://wa.me/${whatsappNumber}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-3 bg-green-500 text-white font-semibold py-4 px-8 rounded-xl text-lg shadow-xl transition-all duration-300 hover:bg-green-600 hover:scale-105"
+      >
+        <FaWhatsapp size={28} />
+        Fale comigo no WhatsApp
+      </a>
+    </section>
+  );
 }

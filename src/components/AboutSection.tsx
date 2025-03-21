@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useTransition, useState } from "react";
-import Image from "next/image";
-import TabButton from "./TabButton";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Tab {
   title: string;
@@ -10,14 +9,34 @@ interface Tab {
   content: React.ReactNode;
 }
 
+interface TabButtonProps {
+  selectTab: () => void;
+  active: boolean;
+  children: React.ReactNode;
+  className?: string;
+}
+
+const TabButton: React.FC<TabButtonProps> = ({ selectTab, active, children, className = "" }) => {
+  return (
+    <button
+      onClick={selectTab}
+      className={`px-4 py-2 font-medium transition-colors ${
+        active ? "text-blue-500 border-b-2 border-blue-500" : "text-gray-800"
+      } ${className}`}
+    >
+      {children}
+    </button>
+  );
+};
+
 const TAB_DATA: Tab[] = [
   {
     title: "Formação",
     id: "education",
     content: (
-      <ul className="list-disc pl-2">
-        <li className="my-2">Bacharel em Ciência da Computação, URI Santo Ângelo / Março de 2022 - esperado 2026 </li>
-        <li className="my-2">Técnico em Informática Para a Internet, Senac RS / Agosto de 2020 - Janeiro de 2022 </li>
+      <ul className="list-disc pl-4">
+        <li className="my-2">Bacharel em Ciência da Computação, URI Santo Ângelo (2022 - 2026)</li>
+        <li className="my-2">Técnico em Informática para a Internet, Senac RS (2020 - 2022)</li>
       </ul>
     ),
   },
@@ -25,7 +44,7 @@ const TAB_DATA: Tab[] = [
     title: "Certificados",
     id: "certifications",
     content: (
-      <ul className="list-disc pl-2">
+      <ul className="list-disc pl-4">
         <li className="my-2">AWS Technical Professional</li>
         <li className="my-2">AWS Sales Accreditation Business</li>
         <li className="my-2">AWS Cloud Economics</li>
@@ -38,9 +57,10 @@ const TAB_DATA: Tab[] = [
     title: "Experiência",
     id: "experience",
     content: (
-      <ul className="list-disc pl-2">
-        <li className="my-2"> Desenvolvedor Front End | Compass UOL Novembro de 2022 - Agosto de 2023 </li>
-        <li className="my-2"> Bolsista Pesquisador | Compass UOL Dezembro de 2021 - Abril de 2022 </li>
+      <ul className="list-disc pl-4">
+        <li className="my-2">Desenvolvedor Full Stack | Solution/Aliare (Março 2024 - Março 2025)</li>
+        <li className="my-2">Desenvolvedor Front End | Compass UOL (Novembro 2022 - Setembro 2023)</li>
+        <li className="my-2">Estágio em Desenvolvimento | Compass UOL (Dezembro 2021 - Abril 2022)</li>
       </ul>
     ),
   },
@@ -57,37 +77,64 @@ const AboutSection = () => {
   };
 
   return (
-    <section className="text-white z-20" id="about">
-      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-        <Image className="aboutImage" src="/logoAbout.jpg" alt="Imagemlogo" width={700} height={500} />
-        <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-4xl font-bold text-white mb-4">Sobre Mim</h2>
-          <p className="text-base lg:text-lg">
-            Atualmente cursando Ciência da Computação no 5º semestre, com formação técnica em Informática para
-            Internet e sólida experiência como Desenvolvedor Front End. Atuo no setor desde dezembro de 2021,
-            adquirindo conhecimento e buscando oportunidades desafiadoras para continuar desenvolvendo minhas
-            habilidades como Desenvolvedor, contribuindo para projetos inovadores e crescendo profissionalmente
-            na área de tecnologia da informação.
-          </p>
-
-          <a href="/GabryelWillers-CV.pdf" download className="cvButton  mb-2">
-            <p>Download CV</p>
-          </a>
-          <div className="flex flex-row justify-start mt-8">
-            {TAB_DATA.map((tabData) => (
-              <TabButton
-                key={tabData.id}
-                selectTab={() => handleTabChange(tabData.id)}
-                active={tab === tabData.id}
-              >
-                {tabData.title}
-              </TabButton>
-            ))}
+    <section className="text-gray-900 bg-gray-100 py-12" id="about">
+      <div className="container mx-auto flex flex-col items-center gap-12 px-6 lg:px-16">
+        <h2 className="text-4xl font-bold text-gray-900 mb-6 border-l-4 border-blue-500 pl-4">Sobre Mim</h2>
+        <p className="text-lg text-gray-700 leading-relaxed max-w-3xl text-center">
+          Sou um Desenvolvedor Full Stack apaixonado por tecnologia e inovação. Tenho experiência
+          com diversas tecnologias modernas e foco em criar soluções eficientes e escaláveis. 
+          Atualmente, trabalho desenvolvendo aplicações de alto impacto e buscando sempre aprimorar minhas habilidades.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-4xl">
+          <div className="text-center bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-3xl font-bold text-blue-500">02+</h3>
+            <p className="text-gray-700">Anos de experiência</p>
           </div>
-          <div className="mt-8">
-            {isPending ? "Loading..." : TAB_DATA.find((t) => t.id === tab)?.content}
+          <div className="text-center bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-3xl font-bold text-blue-500">20+</h3>
+            <p className="text-gray-700">Projetos completos</p>
+          </div>
+          <div className="text-center bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-3xl font-bold text-blue-500">02+</h3>
+            <p className="text-gray-700">Empresas trabalhadas</p>
+          </div>
+          <div className="text-center bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-3xl font-bold text-blue-500">22+</h3>
+            <p className="text-gray-700">Tecnologias dominadas</p>
           </div>
         </div>
+        <div className="flex flex-row justify-center mt-6 gap-4 text-gray-800">
+          {TAB_DATA.map((tabData) => (
+            <TabButton
+              key={tabData.id}
+              selectTab={() => handleTabChange(tabData.id)}
+              active={tab === tabData.id}
+              className="text-gray-800"
+            >
+              {tabData.title}
+            </TabButton>
+          ))}
+        </div>
+        <div className="mt-6 bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={tab}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+            >
+              {isPending ? <div className="w-6 h-6 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin mx-auto" /> : TAB_DATA.find((t) => t.id === tab)?.content}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+        <a
+          href="/GabryelWillers-CV.pdf"
+          download
+          className="mt-6 inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition duration-300"
+        >
+          Baixar CV
+        </a>
       </div>
     </section>
   );

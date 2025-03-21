@@ -6,6 +6,8 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
+import SoftSkills from "@/components/SoftSkills";
+import CareerTimeline from "@/components/CareerTimeline";
 
 export default function Home() {
 
@@ -21,6 +23,13 @@ export default function Home() {
         <section className="z-20" id="Sobre">
           <AboutSection />
         </section>
+
+        <CareerTimeline />
+
+        <SoftSkills />
+
+     
+
         <Skills />
         <section className="z-20" id="Projetos">
           <Projects />
