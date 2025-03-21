@@ -13,15 +13,18 @@ const skills = [
   { name: "React Native", image: "/reactNative.png", experience: 2 },
   { name: "Tailwind", image: "/tailwind.png", experience: 3 },
   { name: "TypeScript", image: "/typescript.png", experience: 3 },
-  { name: "Redux", image: "/redux.png", experience: 2 },
+  { name: "Redux", image: "/redux.png", experience: 1 },
   { name: "JavaScript", image: "/javascript.png", experience: 5 },
-  { name: "Node.js", image: "/node-js.png", experience: 3 },
+  { name: "Node.js", image: "/node-js.png", experience: 1 },
   { name: "CSS", image: "/css.png", experience: 5 },
   { name: "Vue.js", image: "/vue.png", experience: 1 },
   { name: "Next.js", image: "/nextjs.svg", experience: 2 },
-  { name: "Python", image: "/python.png", experience: 4 },
-  { name: "MySQL", image: "/mysql.png", experience: 3 },
-  { name: "Git", image: "/git.svg", experience: 5 },
+  { name: "Python", image: "/python.png", experience: 2 },
+  { name: "MySQL", image: "/mysql.png", experience: 2 },
+  { name: "Git", image: "/git.svg", experience: 3 },
+  {name: "PostgreSQL", image: "/postgresql.svg", experience: 2},
+  {name: "Angular", image: "/angular.svg", experience: 1},
+  {name: "Java", image: "/java.svg", experience: 1},
 ];
 
 export default function Skills() {
@@ -64,7 +67,7 @@ export default function Skills() {
   return (
     <section className="relative z-30 flex flex-col items-center py-20 w-full bg-gradient-to-b from-gray-900 to-gray-800">
       <motion.h1
-        className="text-4xl font-extrabold mb-10 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500"
+        className="text-5xl font-extrabold mb-10 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -73,7 +76,6 @@ export default function Skills() {
         Habilidades
       </motion.h1>
 
-      {/* Desktop Carousels */}
       <div className="hidden md:block w-11/12 md:w-3/4">
         <Slider {...settingsLeft}>
           {firstHalf.map((skill, index) => (

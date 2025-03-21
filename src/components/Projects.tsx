@@ -1,21 +1,22 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
+import { Globe, Star } from "lucide-react";
 
 const GITHUB_USERNAME = "Gabryel-w";
 const GITHUB_API_URL = `https://api.github.com/users/${GITHUB_USERNAME}/repos`;
 
-// Lista de repositórios para ignorar (use os nomes exatos dos repositórios)
 const REPOS_TO_IGNORE = ["Gabryel-w", "gabryel-w.github.io", "Gabryel_Portfolio", "ReactNativeCronometro"];
 
 export default function Projects() {
   interface Project {
-    id: number; // Adicionado para usar como key única
+    id: number;
     name: string;
     html_url: string;
     description: string;
     updated_at: string;
+    language: string;
+    stargazers_count: number;
   }
 
   const [projects, setProjects] = useState<Project[]>([]);
@@ -27,11 +28,10 @@ export default function Projects() {
         const response = await fetch(GITHUB_API_URL);
         const data = await response.json();
 
-        // Filtra repositórios ignorados e ordena por data de atualização
         const filteredAndSortedProjects = data
-          .filter((project: Project) => !REPOS_TO_IGNORE.includes(project.name)) // Filtra repositórios ignorados
+          .filter((project: Project) => !REPOS_TO_IGNORE.includes(project.name))
           .sort((a: Project, b: Project) => {
-            return new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime(); // Ordena por data de atualização
+            return new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime();
           });
 
         setProjects(filteredAndSortedProjects);
@@ -48,40 +48,41 @@ export default function Projects() {
   };
 
   return (
-    <section className="py-16 flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="max-w-7xl w-full px-6 text-center">
-        <div className="container mx-auto flex flex-col items-center gap-12 px-6 lg:px-16 mb-10">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6 border-l-4 border-blue-500 pl-4">
+    <section className="py-16 flex justify-center items-center min-h-screen bg-white text-gray-900 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-gray-100 opacity-100" />
+      <div className="max-w-7xl w-full px-6 text-center relative z-10">
+        <div className="flex  mb-10">
+          <h1 className="text-5xl font-bold mb-6 border-l-4 border-blue-600 pl-4 text-gray-800">
             Meus Projetos
-          </h2>
+          </h1>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.slice(0, visibleProjects).map((project) => (
             <a
               key={project.id}
               href={project.html_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl text-gray-800 w-full"
+              className="group block bg-gray-800 border border-cyan-300 rounded-lg shadow-sm p-6 transition-transform transform hover:scale-105 hover:shadow-lg hover:border-blue-500 flex flex-col justify-between h-full"
             >
-              <div className="relative w-full h-72 overflow-hidden bg-gray-800 flex items-center justify-center">
-                <Image
-                  src="/thumbnaill.jpg"
-                  alt={project.name}
-                  width={600}
-                  height={350}
-                  className="group-hover:scale-110 transition-transform duration-300"
-                />
-              </div>
-
-              <div className="p-8 text-white">
-                <h2 className="text-2xl font-semibold text-gray-800 group-hover:text-blue-400 transition-colors">
+              <div className="flex justify-between items-center">
+                <h2 className="text-xl font-semibold text-blue-600 group-hover:text-blue-500">
                   {project.name}
                 </h2>
-                <p className="mt-2 text-gray-700">{project.description || "Sem descrição disponível."}</p>
-                <p className="mt-2 text-sm text-blue-400">
+                <span className="text-gray-600 text-sm flex items-center gap-1">
+                  <Star size={16} className="text-yellow-400" /> {project.stargazers_count}
+                </span>
+              </div>
+              <p className="mt-4 text-gray-300 flex-grow">
+                {project.description || "Sem descrição disponível."}
+              </p>
+              <div className="flex justify-between items-center mt-6 text-sm text-gray-500">
+                <span className="flex items-center gap-1">
+                  <Globe size={16} className="text-blue-500" /> {project.language || "N/A"}
+                </span>
+                <span className="text-gray-300">
                   Última atualização: {new Date(project.updated_at).toLocaleDateString()}
-                </p>
+                </span>
               </div>
             </a>
           ))}
