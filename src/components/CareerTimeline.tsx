@@ -6,14 +6,14 @@ import { Briefcase, GraduationCap } from "lucide-react";
 
 const experiences = [
   {
-    title: "Ciência da Computação",
-    company: "URI Santo Ângelo",
-    date: "2022 - 2026",
-  },
-  {
     title: "Téc. em Informática p/ Internet",
     company: "Senac RS",
     date: "2020 - 2022",
+  },
+  {
+    title: "Ciência da Computação",
+    company: "URI Santo Ângelo",
+    date: "2022 - 2026",
   },
   {
     title: "Estágio em Desenvolvimento",
