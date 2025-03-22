@@ -81,7 +81,7 @@ const AboutSection = () => {
       <div className="container mx-auto flex flex-col items-center gap-12 px-6 lg:px-16">
         <h2 className="text-4xl font-bold text-gray-900 mb-6 border-l-4 border-blue-500 pl-4">Sobre Mim</h2>
         <p className="text-lg text-gray-700 leading-relaxed max-w-3xl text-center">
-          Sou um Desenvolvedor Full Stack apaixonado por tecnologia e inovação. Tenho experiência
+          Sou um Desenvolvedor apaixonado por tecnologia e inovação. Tenho experiência
           com diversas tecnologias modernas e foco em criar soluções eficientes e escaláveis. 
           Atualmente, trabalho desenvolvendo aplicações de alto impacto e buscando sempre aprimorar minhas habilidades.
         </p>
