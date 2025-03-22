@@ -1,57 +1,51 @@
+# 🚀 Gabryel Willers - Portfolio
 
-# Gabryel Willers Portfólio 
+Welcome to my personal portfolio repository! This project showcases my skills, experience, and projects in software development.
 
-This is the repository for my personal portfolio project. Here, I share information about myself, my work, and relevant projects. This portfolio is created to showcase my skills, experience, and achievements.
+## 🌟 About Me
+I am a passionate software developer with experience in front-end and full-stack development. This portfolio highlights my journey, skills, and the projects I've worked on.
 
+## 📌 Features
+- **About Me**: A brief introduction, including my education and professional experience.
+- **Skills**: A list of my technical and soft skills.
+- **Timeline**: My journey and growth in software development.
+- **Projects**: Featured projects with descriptions, technologies used, and links.
+- **Contact**: Ways to get in touch with me.
 
+## 🛠️ Technologies Used
+- **Front-End**: Next.js, React, TypeScript, Tailwind CSS, Framer Motion
+- **Styling**: CSS, Tailwind CSS
 
-
-
-## Content
-
-About Me: A brief introduction about who I am, my education, and professional experience.
-
-Skills: A list of technical and non-technical skills I possess.
-
-Projects: Highlights of the most significant projects I have worked on. Each project 
-includes a brief description, technologies used, and links to the source code or demo.
-
-Contact: Information to get in touch with me.
-## Technologies Used
-
-- HTML
-- CSS
-- Next js
-- TypeScript
-- Framer Motion
-- Three.js
-- Tailwind CSS
-- React
-## Installation
-
-Install my Portfolio with NPM:
-
-- first clone the repository then in the terminal run the following commands:
+## 🚀 Installation & Setup
+To run this project locally, follow these steps:
 
 ```bash
-  cd Gabryel_Portfolio
-  
-  npm install
+# Clone the repository
+git clone https://github.com/Gabryel-w/Gabryel_Portfolio.git
 
-  npm run dev
+# Navigate to the project folder
+cd Gabryel_Portfolio
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
 ```
-    
-## Project Link:
 
-You can find the project link here
+## 🌍 Live Demo
+Check out the live version of my portfolio:  
+🔗 [gabryelwillers.com.br](https://gabryelwillers.com.br)
 
-- https://gabryelwillers.com.br
+## 📸 Screenshots
+Here are some previews of my portfolio:
 
-## ScreenShots
+![Hero Section](./assets/heroBanner.png)  
+![Skills Section](./assets/skills.png)  
 
-![Print](https://github.com/Gabryel-w/Gabryel_Portfolio/assets/73681582/bc3de6bb-77ad-4eb2-9439-c57ab9baf48d)
+## 👨‍💻 Author
+Developed by [Gabryel Willers](https://github.com/Gabryel-w). Let's connect and build something amazing!
 
-## Author
+---
 
-- [@Gabryelw](https://github.com/Gabryel-w)
-
+Feel free to reach out for collaboration or any opportunities! 🚀
